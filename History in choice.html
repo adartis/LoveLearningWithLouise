@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="History informing choice">
+    <title>Exploring the effects of historical results</title>
+    <style>
+        /* General Body Styling */
+            body {
+                font-family: 'Arial', sans-serif;
+                line-height: 1.8;
+                background: linear-gradient(to right, #ece9e6, #ffffff);
+                color: #2c3e50;
+                padding: 20px;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            /* Container for all content */
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease-in-out;
+            }
+
+            /* Hover effect on the entire content box */
+            .container:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            /* Heading Styles */
+            h1 {
+                color: #2980b9;
+                font-size: 2.5rem;
+                text-align: center;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+            }
+
+            h2 {
+                color: #2c3e50;
+                font-size: 1.75rem;
+                margin-top: 30px;
+            }
+
+            /* List Styling */
+            ul {
+                list-style-type: disc;
+                padding-left: 20px;
+            }
+
+            ul li {
+                margin-bottom: 10px;
+            }
+
+            /* Image Styling */
+            .image-center {
+                display: block;
+                margin: 20px auto;
+                width: 100%;
+                max-width: 600px;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease;
+            }
+
+            /* Image zoom effect */
+            .image-center:hover {
+                transform: scale(1.05);
+            }
+
+            /* Table Styles */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+            }
+
+            table, th, td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #2980b9;
+                color: white;
+            }
+
+            td {
+                background-color: #f9f9f9;
+            }
+
+            /* Button for collapsible content */
+            .collapsible {
+                background-color: #989898;
+                color: white;
+                cursor: pointer;
+                padding: 15px;
+                text-align: left;
+                border: none;
+                outline: none;
+                width: 100%;
+                font-size: 1.2rem;
+                border-radius: 5px;
+                margin-top: 20px;
+                transition: background-color 0.3s ease;
+            }
+
+            /* Collapsible button hover effect */
+            .collapsible:hover {
+                background-color: #1c6ea6;
+            }
+
+            /* Collapsible content */
+            .content {
+                padding: 0 18px;
+                display: none;
+                overflow: hidden;
+                background-color: #f1f1f1;
+                border-left: 4px solid #2980b9;
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+            /* Table hover effects */
+            table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+            /* Footer */
+            h2:last-of-type, p:last-of-type {
+                text-align: center;
+                margin-top: 40px;
+                color: #7f8c8d;
+            }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>What happened after the first ever district contest?</h1>
+
+        <p>In the previous section we explored how a voter may behave rationally when presented with a contemporanous choice without any historical information. The choice of our imaginary, rational voter was thus very straightforward.</p>
+        <p>However, this is not realistic. Very few of us will ever participate in the first ever election of a district. Even if a new district is formed, there will be historical information which we must take into account. For instance, if a new district is formed by the unison of two historical ones, we will have information available on previous voting patterns. Or even if a district comes into fruition where there has never been an election help previously, we will have some understanding of what came before.</p>
+        <p>Let's keep this simple for now - consider the previous set of choices, but this time with information about the electoral contest which immediately preceded it.</p>
+        <p>For this next section, imagine that there is only one vote which can be cast, and that there will be just one winner in the district. To use the terms we learned before, the district magnitude is 1. This is what happens in the First-Past-the-Post electoral rules.</p>
+
+        <table>
+            <tr>
+                <th style="text-align: center; vertical-align: middle;">Party</th>
+                <th style="text-align: center; vertical-align: middle;">Alignment to voter's preference (1 to 100)</th>
+                <th style="text-align: center; vertical-align: middle;">Preceding result (% of all votes cast)</th>
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: middle;">Party A</td>
+                <td style="text-align: center; vertical-align: middle;">10</td>
+                <td style="text-align: center; vertical-align: middle;">40% (wins the district)</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: middle;">Party B</td>
+                <td style="text-align: center; vertical-align: middle;">40</td>
+                <td style="text-align: center; vertical-align: middle;">39%</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: middle;">Party C</td>
+                <td style="text-align: center; vertical-align: middle;">50</td>
+                <td style="text-align: center; vertical-align: middle;">21%</td>
+            </tr>
+        </table>
+        
+    <h2>Who should you vote for?</h2>
+        <p>At this point, image you have to cast your ballot in this contest. As mentioned, the district magnitude is exactly 1. You have one vote. Which party do you vote for?</p>
+
+        <button class="collapsible">What is the most rational choice you can make? Decide, then click here.</button>
+    <div class="content">
+        <p>In the above scenario, <strong>the most rational choice is to vote for party B</strong>, since your preferred choice (party C) is unlikely to win, and party A is the least aligned to your rational preferrences.</p>
+    </div>
+    <h2>Why vote against your preference?</h2>
+        <p>In the above scenario, you were presented with a conundrum. Voting for your preferred candidate and possible losing, or cutting your losses and voting strategically for your second preferrence in order to reduce the risk of your least favourite candidate winning.</p>
+        <p>But perhaps this is a quirk of First-Past-the-Post? Perhaps it's just in simple plurality district elections where voters must default to their second choice?</p>
+        <p>This is (perhaps unfortunately) not the case. Consider the scenario below. In this scenario, the following district rules must be considered by the rational voter: </p>
+    <ul>
+        <li><strong>Magnitude:</strong> This district will return 3 candidates. The district size is 3. This is how Proportional representation systems work.</li>
+        <li><strong>Number of contestants:</strong> There are 8 choices in this district.</li>
+        <li><strong>Number of votes:</strong> The voter in this district has one vote, but you may want to consider afterwards whether the rational choice for the voter would be that much different if they could vote for two candidates or more.</li>
+    </ul>
+
+    <h3>A second example: proportional representation</h3>
+
+    <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+        <tr>
+            <th style="text-align: center; vertical-align: middle;">Party</th>
+            <th style="text-align: center; vertical-align: middle;">Alignment to voter's preference (1 to 100)</th>
+            <th style="text-align: center; vertical-align: middle;">Preceding result (% of all votes cast)</th>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">Party A</td>
+            <td style="text-align: center; vertical-align: middle;">10</td>
+            <td style="text-align: center; vertical-align: middle;">25% (wins)</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">Party B</td>
+            <td style="text-align: center; vertical-align: middle;">20</td>
+            <td style="text-align: center; vertical-align: middle;">20% (wins)</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">Party C</td>
+            <td style="text-align: center; vertical-align: middle;">30</td>
+            <td style="text-align: center; vertical-align: middle;">19% (wins)</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">Party D</td>
+            <td style="text-align: center; vertical-align: middle;">80</td>
+            <td style="text-align: center; vertical-align: middle;">16%</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">Party E</td>
+            <td style="text-align: center; vertical-align: middle;">60</td>
+            <td style="text-align: center; vertical-align: middle;">1%</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">Party F</td>
+            <td style="text-align: center; vertical-align: middle;">70</td>
+            <td style="text-align: center; vertical-align: middle;">1%</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">Party G</td>
+            <td style="text-align: center; vertical-align: middle;">80</td>
+            <td style="text-align: center; vertical-align: middle;">8%</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">Party H</td>
+            <td style="text-align: center; vertical-align: middle;">90</td>
+            <td style="text-align: center; vertical-align: middle;">10%</td>
+        </tr>
+    </table>
+    
+
+    <p>With the above information, our rational voter can discern a few things:</p>
+    
+    <ul>
+        <li><strong>Their preferred candidate is unlikely to win:</strong> This is because the party with the closest alignment to the voter, Party H, has a large amount of ground to make up if it wants to stand a chance to win a seat in the district.</li>
+        <li><strong>Parties A, B, and C dominate:</strong> Collectively, they won 64% of the plebicte in the previous district contest.</li>
+        <li><strong>Party C is the most aligned of the district 'winners' to the voter,</strong> but is not as aligned to his or her preferrences as other parties.</li>
+        <li><strong>Party D</strong> is less aligned to the voter's preference, but has a higher likelihood of winning in the district because of the marginal difference in voter support between it and Party C.</li>
+        <li><strong>PArty G is as appealing to the voter as Party D,</strong> but is not a viable choice due to the greater distance between its historical result and that of party C.</li>
+    </ul>
+
+    <p>Given the above, which party would the rational voter choose?</p>
+
+        <button class="collapsible">What is the most rational choice you can make? Decide, then click here.</button>
+    <div class="content">
+        <p>In the above scenario, <strong>the most rational choice is to vote for party D</strong>, since it has the best chance of winning in the district and is most closely aligned to the voter.</p>
+    </div>
+    <h2>So, what does Duverger's law mean?</h2>
+
+    <p>Given the above, we have seen that a <i>rational</i>voter is most likely to cast their ballot for the party which most aligns with their preferences and has a chance of winning. While we have discussed preference earlier, the effect of historical information is that voters try to maximise the utility of their vote by choosing the candidate which will actually have a chance of represeting their interests by winning in a district.</p>
+
+    <p> This means that in all district competitions, rational voters will vote in a way which makes only some parties <i>viable in that district</i>. Viable parties are those which stand a chance of winning.</p>
+
+    <p>This is an important concept, which you will have likely seen before in elections round the world. Why are some electoral systems dominated by two parties (like in the USA)? Why are there not a thousand parties in Proportional Representation systems?</p>
+
+    <p>Duverger's law holds an answer to this. <strong>The number of viable parties in any given district is the district magnitude plus one.</strong></p>
+
+    <div>
+        <img src="PracticeSite/DuvergerLawImageEquation.png" alt="Duverger's Law Equation" class="image-center" width="700" height="200">
+    </div>
+    
+<h2>Limitations of this model</h2>
+
+    <p>So far, so good?</p>
+    <p>Not quite, there are a number of limitations to this model for explaining how voters behave, and consequently the concept of the number of eligible parties in a district. Here's a few ideas to explain why this model doesn't capture the whole picture:</p>
+
+    <ul>
+        <li>
+            <strong>(Shock horror), people aren't rational:</strong> Indeed, the model of a perfect voter doesn't take into account the multidute of ways in which someone could decide to cast their ballot. Consider the calculus that this model requires - it is almost impossible for any individual to gather, analyse, digest, and process the wealth of information about each party and each district. We must consider voters as <strong>bounded</strong> in rationality; information is limited in their decision making.
+        </li>
+        
+        <li>
+            <strong>Voters thus use various heuristics when approaching voting: </strong> a 'heuristic' process is one where a person might use some sort of model or abstraction to help them process something. For instance, trusting the view of a particular party over all others, or being particularly susceptible to a particular politician's way of speaking. In short, these (usually) unconscious methods of decision-making mean that voters are not even aware of why they prefer a particular candidate over the others.
+        </li>
+        <li>
+            <strong>The lack of certainty: </strong>perhaps more abstract, but since time moves lineraly and we can't ever truly see what will happen, we all must rely on probablistic reasoning to take decisions. While as a mathematical concept probability is well-structured, our own internal processing abilities are by no means shared equitably; we all perceive and calculate the chance of something happening differently.
+        </li>
+    </ul>
+    <script>
+        // Collapsible content toggle
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(function(collapsible) {
+            collapsible.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        });
+    </script>
+
+    <h2>Conclusion</h2>
+    <p>In this section we have moved explored the nature of rational choice in voting. A truly rational individual has a good chance of processing the task of voting in a mathematic, well-formed and predictable manner. However, as we will explore further, this is not reflective of reality. In the next section, we will explore ways in which individuals actually behave in elections.</p>
+
+</div>
+
+</body>
+</html>

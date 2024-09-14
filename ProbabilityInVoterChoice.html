@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="History informing choice">
+    <title>Gamble rationality calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 70px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 20px;
+            margin-right: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 70%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #result-box {
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .light-red {
+            background-color: #ffcccc;
+        }
+
+        .light-green {
+            background-color: #ccffcc;
+        }
+
+        #message {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Probability and voter choice</h1>
+    <p>In the previous section we considered a few of the issues with the rational voter model. In this section, we will review the role of probability in electoral calculus. Let's begin with a hot take: voting is a fundamentally irrational activity.</p>
+
+    <p>This sounds controversial, but it needn't be. Voting being irrational doesn't mean we shouldn't vote - there are reasons to vote which are not tied to the narrow concept of rationality, for instance civic duty or the virtue of being an active member of a democracy. However, we shouldn't disregard the reality of the potential <strong>reward for voting</strong>, the <strong>the likelihood that our vote will make an impact</strong>, or <strong>individual's costs incurred by voting.</strong> Let's take each of these in turn.</p>
+
+    <ul>
+        <li>
+            <p><strong>The reward for voting</strong> would be that your preferred candidate wins a district and thus can influence future policy and make you better off. This is a core consideration in the rational voter model.</p>
+        </li>
+        <li>
+            <p><strong>The likelihood of impact</strong> is another way of saying what the chances of your candidate winning are. Why vote for a dud candidate who is unlikely to win? As we saw with the rational voter, it is important to consider whether a candidate can actually win a district.</p>
+        </li>
+        <li>
+            <strong>The cost of voting</strong> is all about whether the act of going to cast a ballot is acceptable. For many, briefly casting a vote on the way to work on a Thursday morning (as in the UK) is of no great issue. But what if the voting centre is far away? Or the individual incurs financial costs, such as bus fare, to get there? All this must be considered by a voter.
+        </li>
+    </ul>
+
+    <button class="collapsible">Did you know?.</button>
+    <div class="content">
+        <p>To vote in the UK on polling day, you now need to show photo ID to vote at polling stations. This requirement was instituted by the UK Conservative government, with the local elections of May 2023 being the first where voters had to show proof of identity to cast any votes. This change marginally increased the cost of voting, as voters would need to remember to bring their IDs, potentially apply for a Voter Authority Certificate, or even (for example) return home to bring a valid identification document if they had forgotten it. There was not necessarily a monetary cost for voters from this change, but it added time costs for most electors.</p>
+    </div>
+
+    <h1>The mechanics of probability in voter choice</h1>
+
+    <p>A rational voter must consider the probability of their candidate winning when deciding on who to vote for, or whether to vote at all. At this point it may be helpful to consider what probability is.</p>
+
+    <p>Probability is a branch of mathematics that measures the likelihood of an event occurring. It is expressed as a number between 0 and 1, where 0 means the event will not happen, and 1 means it will definitely happen. Probability helps in making predictions about uncertain outcomes.</p>
+
+    <p>The mathematical calculation is simple. To calculate probability simply, you divide the number of favourable outcomes by the total number of possible outcomes. For instance, the probability of rolling the number 3 on a six-sided die is one in six. Consder the equation below:</p>
+
+    <div>
+        <img src="/Users/georgekokkinos/CodingMain/WebDev/NotationProbability.png" alt="Notation for probability" class="image-center" width="700" height="200">
+    </div>
+
+    <p> And the below as the notation for our die-roll example.</p>
+
+    <div>
+        <img src="/Users/georgekokkinos/CodingMain/WebDev/NotationDieRollExample.png" alt="Notation die roll example" class="image-center" width="700" height="200">
+    </div>
+
+    <p>In the case of voting, we should include two more elements to help us conceptualise the cost and reward of voting. Probability is about chance, but when we consider that an individual may win something from taking that chance, and that there is a cost associated, we are talking in essence about gambling. These elements are the <strong>reward</strong>for succeeding, and the <strong>cost</strong> of taking the gamble.</p>
+
+    <p>This can be summarised so:</p>
+
+    <div>
+        <img src="/Users/georgekokkinos/CodingMain/WebDev/PracticeSite/GamblersEquation.png" alt="Notation die roll example" class="image-center" width="700" height="200">
+    </div>
+
+    <p>Consider a game where with a stake (cost) of 1, you have a chance of winning 2. The chance is 1 in 6 (i.e., a coin flip). Should you take that chance?</p>
+
+    <p>The calculus of this is thus:</p>
+
+    <ol>
+        <li>
+            There is a 1 in 2 chance of winning: 1/2
+        </li>
+        <li>
+            The win is 1.5
+        </li>
+        <li>
+            This means that the chances are that you will win 0.75
+        </li>
+        <li>
+            The cost is 1. This means that the gamble is worth -0.25
+        </li>
+        <li>
+            For every pound you spend, you will likely lose 0.25
+        </li>
+    </ol>
+
+    <p>In the above, after 6 flips of the coin, the chances are that you will win 3 times. This will mean you will get 4.5. However, you will have had to place 6 stakes, totalling 6. Your net earnings are negative 1.5. A net loss of 1.5.</p>
+    
+    <p>You are also not guarenteed to win at all. You could play ten times and not win a single one of the gamble. The important thing to note in this example is that it may not even be worth your time to play this game.</p>
+
+    <p>However, what if the reward is 10? Now, the utility of playing increases:</p>
+
+    <ol></ol>
+        <li>
+            There is a 1 in 2 chance of winning: 1/2
+        </li>
+        <li>
+            The win is 10
+        </li>
+        <li>
+            This means that the chances are that you will win are 5
+        </li>
+        <li>
+            However, the cost is 1. This means that the gamble is worth 4
+        </li>
+        <li>
+            For every pound you spend, you will likely get 4 back
+        </li>
+    </ol>
+
+    <p>In the above, after 6 flips of the coin, the chances are that you will win three times. This will mean you will get 30. You will have had to place 6 stakes, totalling 6. Your net earnings are 24. 6 times 4 is 24.</p>
+    
+    <p>You may explore this further the the calculator below. Why not try to see if it's worth playing the lottery? Try to see the utility of playing a game with a 1 stake for a chance of winning 1,000,000, but the odds of winning are 1 in 1,500,000.</p>
+
+    <h1>Gamble Calculator</h1>
+
+    <label for="reward">Enter a reward for winning the gamble (0 to 1,000,000,000,000):</label>
+    <input type="number" id="reward" min="0" max="1000000000000" step="0.01" placeholder="Enter reward amount">
+
+    <label for="chance">Enter the chance of winning, 1 in a number you specify (0 to 1,000,000,000,000):</label>
+    <input type="number" id="chance" min="0" max="1000000000000" step="0.01" placeholder="Enter chance of winning">
+
+    <label for="cost">Cost to take the gamble (0 to 1,000,000,000,000):</label>
+    <input type="number" id="cost" min="0" max="1000000000000" step="0.01" placeholder="Enter cost">
+
+    <button onclick="calculateResult()">Calculate</button>
+
+    <div id="result-box"></div>
+    <p id="message"></p>
+
+
+<script>
+    function calculateResult() {
+        // Get input values
+        let reward = parseFloat(document.getElementById('reward').value);
+        let chance = parseFloat(document.getElementById('chance').value);
+        let cost = parseFloat(document.getElementById('cost').value);
+
+        // Validate input to avoid division by zero
+        if (isNaN(reward) || isNaN(chance) || isNaN(cost) || chance === 0) {
+            alert("Please enter valid numbers. The chance of winning must not be zero.");
+            return;
+        }
+
+        // Calculate the result: reward * (1 / chance) - cost
+        let result = (reward * (1 / chance)) - cost;
+        
+        // Display the result as a float number with two decimal places
+        document.getElementById('result-box').innerText = result.toFixed(2);
+
+        // Display the appropriate background color and message
+        let resultBox = document.getElementById('result-box');
+        let message = document.getElementById('message');
+
+        if (result < 0.00001) {
+            resultBox.className = 'light-red';
+            message.innerText = "It is irrational to take this gamble";
+        } else {
+            resultBox.className = 'light-green';
+            message.innerText = "It is rational to take this gamble";
+        }
+    }
+</script>
+<p>Important to note is that in this model, we assume that the <strong>cost</strong> of voting (the intial stake) is not returned when there is a win for the individual. This is because the cost is often something non-monetary, like time, for a voter.</p>
+<h1>Probability in elections</h1>
+<p>The above model explains how a rational individual may consider voting irrational. This is because, while the cost of voting is often low, the chances of someone's vote having an impact on a district competition is miniscule. Consider the following data drawn from the 2024 UK General Election in the Hammersmith and Fulham constituency. </p>
+
+<table border="1">
+    <tr>
+      <th>Party</th>
+      <th>Candidate</th>
+      <th>Votes</th>
+      <th>%</th>
+      <th>±%</th>
+    </tr>
+    <tr>
+      <td>Labour</td>
+      <td>Andy Slaughter</td>
+      <td>24,073</td>
+      <td>52.3</td>
+      <td>+1.5</td>
+    </tr>
+    <tr>
+      <td>Conservative</td>
+      <td>Andrew Dinsmore</td>
+      <td>8,783</td>
+      <td>19.1</td>
+      <td>–11.4</td>
+    </tr>
+    <tr>
+      <td>Green</td>
+      <td>Naranee Ruthra-Rajan</td>
+      <td>4,468</td>
+      <td>9.7</td>
+      <td>+6.6</td>
+    </tr>
+    <tr>
+      <td>Liberal Democrats</td>
+      <td>Eraj Rostaqi</td>
+      <td>4,292</td>
+      <td>9.3</td>
+      <td>–4.6</td>
+    </tr>
+    <tr>
+      <td>Reform UK</td>
+      <td>Louise Petano-Heathcote</td>
+      <td>2,929</td>
+      <td>6.4</td>
+      <td>+4.6</td>
+    </tr>
+  </table>
+
+  <p><strong>At first glance,a rational voter has a limited number of choices </strong> available to them in considering how to cast their vote in the next election.</p>
+  <ul>
+    <li>
+        Firstly, the only viable parties are the Labour or Conservative ones. This is because of Duverger's law - instead of choosing a party without a lot of support, it would be better to vote strategically for the party which can actually win based on the limited data available.
+    </li>
+    <li>
+        Secondly, the difference between the winner (Labour) and other viable party (Conservatives) is so high (15,280 votes) that it is hard to see how <strong><i>one vote</i></strong> will have an impact.
+    </li>
+  </ul>
+  <p>
+    The fact that a rational voter must consider their single vote is important. An indiviual will be able to think strategically about the problem, but without more information about how peers will vote, the previous election (2024) data is all they have to go by for the upcoming election. This means that the voter can think of their individual vote in this manner:
+  </p>
+  <ol>
+    <li>
+        The cost of the act of voting is 1 (arbitrary value for the sake of this model).
+    </li>
+    <li>
+        The reward of the act of voting is 1 (another arbitrary figure).
+    </li>
+    <li>
+        Their single vote will have an impact only if the viable parties draw in the competition, and it goes down to one single vote.
+    </li>
+  </ol>
+
+  <p>
+    Without further information, the probability of a single vote having an impact is extremely hard to calculate. However, we can conceptualise the magnitude of the probability in a district competition with the discussion below. To do this, we will assume that the cost of voting under aany circumstance is constant.
+  </p>
+  <table border="1">
+    <tr>
+      <th></th>
+      <th>Small difference between viable parties</th>
+      <th>Large difference between viable parties</th>
+    </tr>
+    <tr>
+      <td>Low reward for preferred party winning</td>
+      <td>Irrational to vote</td>
+      <td>Irrational to vote</td>
+    </tr>
+    <tr>
+      <td>High reward for preferred party winning</td>
+      <td>Rational to vote</td>
+      <td>Irrational to vote</td>
+    </tr>
+  </table>
+  <p> And now let's plug some numbers into the calculator above to see how the magnitude of the rationality changes. The table below has been completed to illustrate this.</p>
+ 
+  <table border="1">
+    <tr>
+      <th></th>
+      <th>Probability of a single vote having an impact 1/100</th>
+      <th>Probability of a single vote having an impact 1/1000</th>
+    </tr>
+    <tr>
+      <td>Reward for preferred party winning is 10</td>
+      <td>-0.9</td>
+      <td>-0.99</td>
+    </tr>
+    <tr>
+      <td>Reward for preferred party winning is 100</td>
+      <td>0</td>
+      <td>-0.9</td>
+    </tr>
+  </table>
+  <p>As you can see, our hypothetical rational voter who has limited information will struggle to see any utility in voting in the upcoming election!</p>
+  <p>Now that we have established this element of electoral calculus, let's explore the reasons which may explain why people even bother voting at all.</p>
+
+  <h2>Conclusion</h2>
+  <p>In this section we have seen the limitations of rational choice in explaining why people vote. As a model it partially explains the concept of strategic voting, but we must know explore other ways to consider how an individual approaches casting their ballot.</p>
+</div>
+</body>
+</html>
