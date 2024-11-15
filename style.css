@@ -17,23 +17,24 @@ header#banner {
     position: fixed;
     top: 0;
     left: 0;
-    background: #f5f5f5; /* Soft neutral background to contrast subtly with green and gold */
+    background: #f5f5f5;
     color: #333;
     text-align: center;
     padding: 20px;
     transition: height 0.5s ease;
-    height: 70vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    border-bottom: 2px solid #a6921b; /* Subtle gold border */
+    border-bottom: 2px solid #a6921b;
 }
 
 header#banner h1 {
     margin: 10px 0;
-    color: #155724; /* Subtle green for text */
+    margin-bottom: 35px;
+    color: #155724;
     transition: opacity 0.5s ease;
 }
 
@@ -47,7 +48,7 @@ nav#navbar {
 
 /* Main content section */
 main {
-    width: 60vw;
+    width: 70vw;
     background-color: #fdfdfd;
     padding: 20px;
     border-radius: 8px;
@@ -73,174 +74,136 @@ main {
     overflow: hidden;
 }
 
-/* Testimonial content and animations */
-#testimonial-content {
-    position: relative;
-    width: 80%;
-    height: 100%;
+#testimonial-content img {
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Flexbox layout for image and text */
+.container-presentation {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
-#testimonial-content img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-/* Individual Testimonial styling */
-.testimonial {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* Carousel navigation buttons */
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
-    z-index: 1;
-    padding: 10px;
-    transition: color 0.3s ease;
-}
-
-/* Right button */
-.carousel-control.next {
-    right: 10px;
-}
-
-/* Left button */
-.carousel-control.previous {
-    left: 10px;
-}
-
-.carousel-control:hover {
-    color: #a6921b; /* Gold on hover */
-}
-
-/* Fade and slide animations for testimonials */
-.fade-in-right {
-    animation: fadeInRight 0.5s forwards;
-}
-
-.fade-out-left {
-    animation: fadeOutLeft 0.5s forwards;
-}
-
-.fade-in-left {
-    animation: fadeInLeft 0.5s forwards;
-}
-
-.fade-out-right {
-    animation: fadeOutRight 0.5s forwards;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #155724; /* Subtle green */
-    color: white;
-}
-
-/* Button Styles */
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background: linear-gradient(45deg, #3498db, #a6921b); /* Gradient with subtle gold */
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
+.image-frontpage {
+    border-radius: 8px;
+    width: 35%;
+    height: auto;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-    background-color: #155724; /* Green hover */
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+.text-content {
+    flex: 1;
 }
 
-button:active {
-    transform: scale(0.95);
-}
+@media (max-width: 768px) {
+    .container-presentation {
+        flex-direction: column;
+        text-align: center;
+    }
 
-/* Decorative effect for button hover */
-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #a6921b; /* Gold border */
-    box-sizing: border-box;
-    transition: transform 0.3s ease;
-    transform: scale(1.2);
-    opacity: 0;
-}
+    .image-frontpage {
+        width: 80%;
+        margin: 0 auto;
+    }
 
-button:hover::before {
-    transform: scale(1);
-    opacity: 1;
-}
-
-/* Circular button style */
-button.circle-button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 0;
-    font-size: 20px;
-}
-
-/* Typography */
-h2 {
-    font-size: 24px;
-    color: #a6921b; /* Subtle gold for headings */
-    margin-top: 20px;
+    header#banner {
+        height: 40vh;
+    }
 }
 
 p {
     font-size: 16px;
+    line-height: 1.5;
     color: #555;
     margin: 10px 0;
 }
 
-section.highlight {
-    font-size: 18px;
-    font-style: italic;
-    color: #444;
+h2 {
+    font-size: 24px;
     margin: 20px 0;
+    color: #a6921b;
+    line-height: 1.3;
 }
 
-.containerpresentation {
-    display: flex;           /* Aligns items in a row */
-    align-items: center;     /* Vertically centers the content */
-    gap: 20px;               /* Space between image and text */
-    max-width: 800px;        /* Optional: Limit the container width */
-    margin: 20px auto;       /* Centers the container on the page */
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.picturefrontpage {
-
-    border-radius: 8px;      /* Optional: Adds rounded corners */
-    width: 50%; /* Image will be 50% of its container’s width */
-    height: auto; /* Maintains the aspect ratio */
+a:hover {
+    color: #a6921b;
 }
 
-.text-content {
-    flex: 1;                 /* Allows the text content to fill the remaining space */
+/* Grid Layout */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-gap: 20px; /* Space between grid items */
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.grid-item .overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Hover Effect */
+.grid-item:hover img {
+    opacity: 0; /* Make image transparent */
+}
+
+.grid-item:hover .overlay-text {
+    opacity: 1; /* Reveal text */
+}
+
+.grid-item:hover {
+    transform: scale(1.05); /* Slight zoom-in effect */
+}
+footer {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Horizontally center content */
+    justify-content: center; /* Vertically center content */
+    position: absolute; /* Allow the footer to be placed precisely */
+    
+    left: 40%; /* Position it horizontally at the page's center */
+    
 }
